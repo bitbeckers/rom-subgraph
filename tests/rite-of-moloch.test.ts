@@ -11,6 +11,7 @@ import { handleNewRiteOfMoloch } from "../src/rite-of-moloch-factory";
 import {
   DEFAULT_TREASURY_ADDRESS,
   createNewRiteOfMolochEvent,
+  setUpMockName,
   setUpMockTreasury,
 } from "./rite-of-moloch-factory-utils";
 import {
@@ -72,6 +73,7 @@ describe("Cohort staking config and process", () => {
       sbtUrl
     );
 
+    setUpMockName(cohortAddress);
     setUpMockTreasury(cohortAddress, treasury);
 
     handleNewRiteOfMoloch(newNewRiteOfMolochEvent);

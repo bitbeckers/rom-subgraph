@@ -1,5 +1,6 @@
 type Cohort @entity {
   id: ID!
+  name: String #string
   address: Bytes! #address
   chain: String! #string
   deployer: Bytes! #address

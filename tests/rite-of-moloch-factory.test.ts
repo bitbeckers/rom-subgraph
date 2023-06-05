@@ -7,11 +7,10 @@ import {
   afterAll,
 } from "matchstick-as/assembly/index";
 import { Address, BigInt } from "@graphprotocol/graph-ts";
-import {
-  handleNewRiteOfMoloch,
-} from "../src/rite-of-moloch-factory";
+import { handleNewRiteOfMoloch } from "../src/rite-of-moloch-factory";
 import {
   createNewRiteOfMolochEvent,
+  setUpMockName,
   setUpMockTreasury,
 } from "./rite-of-moloch-factory-utils";
 import { getCohortId } from "../src/utils";
@@ -53,6 +52,7 @@ describe("Index cohorts from factory", () => {
       sbtUrl
     );
 
+    setUpMockName(cohortAddress);
     setUpMockTreasury(cohortAddress, treasury);
 
     handleNewRiteOfMoloch(newNewRiteOfMolochEvent);

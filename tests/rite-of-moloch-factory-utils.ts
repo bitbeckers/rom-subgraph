@@ -94,10 +94,18 @@ export function createNewRiteOfMolochEvent(
   return newRiteOfMolochEvent;
 }
 
-export function setUpMockTreasury(cohort: Address, treasury: Address): void {
-  createMockedFunction(cohort, "adminTreasury", "adminTreasury():(address)").returns([
-    ethereum.Value.fromAddress(treasury),
+export function setUpMockName(cohort: Address): void {
+  createMockedFunction(cohort, "cohortName", "cohortName():(string)").returns([
+    ethereum.Value.fromString("MockCohort"),
   ]);
+}
+
+export function setUpMockTreasury(cohort: Address, treasury: Address): void {
+  createMockedFunction(
+    cohort,
+    "adminTreasury",
+    "adminTreasury():(address)"
+  ).returns([ethereum.Value.fromAddress(treasury)]);
 }
 
 // export function createRoleAdminChangedEvent(

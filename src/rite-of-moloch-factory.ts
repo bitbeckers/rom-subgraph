@@ -60,6 +60,7 @@ export function handleNewRiteOfMoloch(event: NewRiteOfMoloch): void {
 
   let contract = RiteOfMolochContract.bind(event.params.cohortContract);
   cohort.treasury = contract.adminTreasury();
+  cohort.name = contract.cohortName();
 
   log.info("New cohort created: {}", [cohort.id]);
 
